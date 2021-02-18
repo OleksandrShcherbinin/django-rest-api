@@ -20,7 +20,6 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     def get_token(cls, user):
         token = super(MyTokenObtainPairSerializer, cls).get_token(user)
 
-        # Add custom claims
         token['username'] = user.username
         return token
 
@@ -62,12 +61,16 @@ class RegisterSerializer(serializers.ModelSerializer):
         return attrs
 
     def create(self, validated_data):
+        first_name = validated_data.get("first_name")
+        last_name = validated_data.get("last_name")
         user = User.objects.create(
             username=validated_data['username'],
             email=validated_data['email'],
-            first_name=validated_data['first_name'],
-            last_name=validated_data['last_name']
         )
+        if first_name:
+            user.first_name = first_name
+        if last_name:
+            user.last_name = last_name
 
         try:
             response = clearbit.Enrichment.find(email=validated_data['email'],

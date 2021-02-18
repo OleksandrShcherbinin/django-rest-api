@@ -44,6 +44,7 @@ coverage.xml
 
 # Django stuff:
 *.log
+*.log.*
 *.pot
 
 # Sphinx documentation
@@ -70,3 +71,4 @@ pnpm-debug.log*
 *.ntvs*
 *.njsproj
 /db.sqlite3
+/logs/django.log.1

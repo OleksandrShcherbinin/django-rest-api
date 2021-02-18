@@ -24,8 +24,5 @@ class PostAPIView(ModelViewSet):
         request = get_user_id(request)
         return super().create(request, *args, **kwargs)
 
-    def update(self, request, *args, **kwargs):
-        return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
-
     def destroy(self, request, *args, **kwargs):
         return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
