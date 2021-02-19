@@ -1,7 +1,7 @@
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
 from .models import Post
@@ -21,7 +21,7 @@ def authenticate_from_token(request):
 class PostAPIView(ModelViewSet):
     serializer_class = PostSerializer
     queryset = Post.objects.all()
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)  # AllowAny to check axios getting posts from API
 
     def create(self, request, *args, **kwargs):
         request = authenticate_from_token(request)

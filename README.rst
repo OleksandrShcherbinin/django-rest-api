@@ -96,6 +96,7 @@ Authorization: Bearer <your access token here>
 "user": number
 }
 ]
+
 *Error Response*
 - Code: 401
 
