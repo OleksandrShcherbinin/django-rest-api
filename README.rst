@@ -80,8 +80,7 @@ Authorization: Bearer <your access token here>
 "title": "string",
 "content": "string",
 "like": number,
-"dislike": number,
-"user": number <user.id>
+"dislike": number
 }
 *Success Response*
 - Code: 200
@@ -94,7 +93,7 @@ Authorization: Bearer <your access token here>
 "like": number,
 "dislike": number,
 "created": "2021-02-16T16:24:06.407516Z",
-"user": 1
+"user": number
 }
 ]
 *Error Response*
