@@ -42,7 +42,7 @@ name: "Login",
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .login {
   width: 90%;
   margin: 50px auto;

@@ -23,11 +23,30 @@ export default new Vuex.Store({
           username: userCredentials.username,
           password: userCredentials.password
         }).then(response => {
+          localStorage.setItem('token', response.data.access)
           context.commit('updateStorage',
               {
                 access: response.data.access,
                 refresh: response.data.refresh
               })
+          resolve()
+        })
+        .catch(error => {
+            reject(error)
+          })
+      })
+    },
+    userSignup(context, userCredentials) {
+      return new Promise((resolve, reject) => {
+        getAPI.post('/auth/signup/', {
+          username: userCredentials.username,
+          password: userCredentials.password,
+          password2: userCredentials.password2,
+          email: userCredentials.email,
+          first_name: userCredentials.first_name,
+          last_name: userCredentials.last_name
+        }).then(response => {
+          console.log("Success!!!")
           resolve()
         })
         .catch(error => {
