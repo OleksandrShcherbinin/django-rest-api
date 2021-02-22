@@ -8,6 +8,9 @@
 
 .. note:: Bot config file config.json at BASE_DIR
 
+.. note:: python manage.py migrate | python manage.py runserver | cd frontend | npm run serve
+
+
 .. rubric:: **signup**
 
 *URL*

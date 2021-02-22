@@ -18,6 +18,9 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        ordering = ('-created',)
+
 
 class BotContentSource(models.Model):
 
